@@ -1,8 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser,UserManager
+from django.contrib.auth.models import AbstractBaseUser
+from .managers import UserManager
 
 # Create your models here.
-class User(AbstractUser):
+class User(AbstractBaseUser):
     username = None
     email = models.EmailField(unique=True,blank=False,null=False)
     phone_number = models.IntegerField(blank=False, unique=True, null=False)
@@ -14,4 +15,8 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
+
+
+
+        
 
